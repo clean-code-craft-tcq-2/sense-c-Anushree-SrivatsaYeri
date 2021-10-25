@@ -2,9 +2,10 @@
 #include "math.h"
 #include "stdio.h"
 
-Stats compute_statistics(const float* numberset, int setlength) {
-	Stats s;
-	s.average = 0;
+Stats compute_statistics(const float* numberset, int setlength) 
+{
+    Stats s;
+    s.average = 0;
     s.min = numberset[0];
     s.max = numberset[0];
 	float total = 0.0;
@@ -32,6 +33,17 @@ else
 {
 	s.average = total / setlength;
 }
-return s;}
+return s;
+}
 
-
+Stats compute_statistics(const int numberset, int setlength) 
+{
+Stats s;
+	if ((setlength == 0 ) || (numberset == 0))
+	{	
+            s.average = NAN;
+            s.min = NAN;
+            s.max = NAN;
+        }
+return s;	
+}
